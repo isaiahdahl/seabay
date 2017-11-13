@@ -1,2 +1,0 @@
-class Poisson < ApplicationRecord
-end
