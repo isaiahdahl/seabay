@@ -5,6 +5,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @fish = Fish.order("name asc")
+    @fishorder = FishOrder.new
   end
 
   def new
@@ -40,7 +42,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :rating)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :coordinates)
   end
 
   def find_restaurant
