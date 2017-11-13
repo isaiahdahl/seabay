@@ -1,0 +1,2 @@
+class Poisson < ApplicationRecord
+end
