@@ -1,12 +1,22 @@
+require 'pry-byebug'
+
+
 Fish.destroy_all
+User.destroy_all
+Restaurant.destroy_all
 
-# 10.times do
-#   User.create(
-#     email: Faker::Internet.free_email,
-#     encrypted_password: Faker::Internet.password(8)
-#     )
-# end
+puts "DESTROY DATABASE!!!"
 
+30.times do
+  password = Faker::Internet.password(8)
+  User.create(
+    email: Faker::Internet.free_email,
+    password: password,
+    password_confirmation: password
+    )
+end
+
+p "USERS: #{User.all}"
 
 API_HOST = "https://api.yelp.com"
 SEARCH_PATH = "/v3/businesses/search"
@@ -53,19 +63,25 @@ end
 
 response = search("seafood", "Lisbon")
 
+puts response
+
+user_id = 1
+
 response["businesses"].each do |biz|
-  Restaurant.create(
+  resto = Restaurant.new(
     name: biz["name"],
-    address: biz["display_address"],
+    address: biz["location"]["display_address"].join(" "),
     phone_number: biz["phone"],
     email: Faker::Internet.email,
     img_url: biz["image_url"],
     url: biz["url"],
-    coordinates: biz["coordinates"],
-    user_id: (1..10).to_a.sample
+    coordinates: biz["coordinates"].to_s,
+    user_id: user_id += 1
     )
+  resto.save
 end
 
+p "RESTAURANTS: #{Restaurant.all}" 
 
 fishes = ["Sardines", 
 "Sea Bream", 
@@ -96,15 +112,24 @@ fishes = ["Sardines",
 "Atlantic Wreckfish", 
 "Flounder", 
 "John Dory", 
-"Monkfish", 
-"Goose Barnacles"]
+"Monkfish"
+]
 
 fishes.each do |fish|
   Fish.create(name: fish)
 end
 
+p "FISH: #{Fish.all}" 
 
 
+30.times do
+  password = Faker::Internet.password(8)
+  User.create(
+    email: Faker::Internet.free_email,
+    password: password,
+    password_confirmation: password
+    )
+end
 
 
 
