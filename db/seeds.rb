@@ -1,6 +1,3 @@
-require 'pry-byebug'
-
-
 Fish.destroy_all
 User.destroy_all
 Restaurant.destroy_all
