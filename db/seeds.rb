@@ -1,12 +1,12 @@
-10.times do
-  User.create(
-    email: Faker::Internet.free_email, 
-    encrypted_password: Faker::Internet.password(8)
-    )
-end
+Fish.destroy_all
 
-CLIENT_ID = "8dOyMoqiFn7IX0pq7os-Kg"
-CLIENT_SECRET = "BQvNDdZDJNtw5MTyhtDy4UJo8nEIucICk82IXl8y2ZCLU9FvVARYyfFbjUWT6Mxq"
+# 10.times do
+#   User.create(
+#     email: Faker::Internet.free_email,
+#     encrypted_password: Faker::Internet.password(8)
+#     )
+# end
+
 
 API_HOST = "https://api.yelp.com"
 SEARCH_PATH = "/v3/businesses/search"
@@ -20,17 +20,16 @@ DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "San Francisco, CA"
 SEARCH_LIMIT = 30
 
+
 def bearer_token
   # Put the url together
   url = "#{API_HOST}#{TOKEN_PATH}"
 
-  raise "Please set your CLIENT_ID" if CLIENT_ID.nil?
-  raise "Please set your CLIENT_SECRET" if CLIENT_SECRET.nil?
 
   # Build our params hash
   params = {
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
+    client_id: ENV["CLIENT_ID"],
+    client_secret: ENV["CLIENT_SECRET"],
     grant_type: GRANT_TYPE
   }
 
