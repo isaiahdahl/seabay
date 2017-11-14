@@ -70,6 +70,10 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path
   end
 
+  def my_restaurants
+    @restos = Restaurant.where( user_id: current_user.id)
+  end
+
   private
 
   def restaurant_params
