@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resources :fishorders, only: [:destroy]
+
+
+  resources :fish_orders, only: [:destroy]
 
   resources :restaurants, only: [:index, :show, :new, :create] do
-    resources :fishorders, only: [:new, :create]
+    resources :fish_orders, only: [:new, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

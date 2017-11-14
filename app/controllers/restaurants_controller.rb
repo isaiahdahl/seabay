@@ -1,21 +1,23 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
-    if search_params
-      @fish = Fish.all
-      search = search_params.to_h
-      fish = search.select { |key, value| value == "1" }
-      f = []
-      fish.keys.each { |name| f << Fish.where(name: name).first }
-      @restaurant = []
-      f.each do |fish|
-        if FishOrder.where(fish_id: fish.id).first
-          @restaurant << FishOrder.where(fish_id: fish.id).first.restaurant
-        end
-      end
-    else
-      @restaurant = Restaurant.all
-    end
+    @restaurant = Restaurant.all
+
+    # if search_params
+    #   @fish = Fish.all
+    #   search = search_params.to_h
+    #   fish = search.select { |key, value| value == "1" }
+    #   f = []
+    #   fish.keys.each { |name| f << Fish.where(name: name).first }
+    #   @restaurant = []
+    #   f.each do |fish|
+    #     if FishOrder.where(fish_id: fish.id).first
+    #       @restaurant << FishOrder.where(fish_id: fish.id).first.restaurant
+    #     end
+    #   end
+    # else
+    #   @restaurant = Restaurant.all
+    # end
   end
 
   def show
