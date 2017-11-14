@@ -5,32 +5,22 @@
 
       <%= render 'shared/filter' %>
 
-
       <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
           <% @fish.each do |fish| %>
               <%= f.input fish, as: :boolean %>
           <% end %>
           <%= f.submit %>
       <% end %>
-
-
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-      <%= render 'shared/card' %>
-
-
+      
+      <% @restaurant.each do |c| %>
+        <div class="col-xs-12 col-sm-6">
+          <%= render 'shared/card', restaurant: c %>
+        </div>
+      <% end %>
 
 
     </div>
   </div>
-
 
   <div id="map">
   </div>
