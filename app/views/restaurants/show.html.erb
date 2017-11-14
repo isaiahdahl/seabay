@@ -1,43 +1,46 @@
-<div class="container">
-  <div class="text-center">
-    <h2><%= @restaurant.name %></h2>
-  </div>
+<div class="main-container">
 
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="banner">
-        <%= image_tag @restaurant.img_url, width: 400 %>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <div class="description" style="margin-top: 30">
-        <p><%= @restaurant.address %></p>
-        <p><%= @restaurant.phone_number %></p>
-        <p><%= @restaurant.email %></p>
-      </div>
+  <div class="container">
+    <div class="resto-info">
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.email %></p>
     </div>
   </div>
 
+  <div id="hero" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.2)), url('<%= @restaurant.img_url %>');">
+  </div>
+</div>
+
+<div class="order-container">
   <div class="row">
-    <div class="text-center">
-      <h2>Add Fish Order</h2>
-      <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
-      <%= f.input :fish_id, collection: @fish %>
-      <%= f.submit %> 
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-      <ul>
-        <% @restaurant.fish_orders.each do |order| %>
-        <li>
-          <%= order.fish.name %> 
-          <span class="plus-minus"><%= link_to '<i class="fa fa-minus-circle" aria-hidden="true"></i>'.html_safe, fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span>
-        </li>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="text-center">
+        <h2>Today's Fish Order</h2>
+        <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
+        <%= f.input :fish_id, collection: @fish, placeholder: 'Select a fish' %>
+        <%= f.submit %>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </div>
 
+<div class="fish-container">
+  <div class="row">
+    <div class="orders">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <ul>
+          <% @restaurant.fish_orders.each do |order| %>
+          <li class="text-center">
+            <h4><%= order.fish.name %>
+            <span class="plus-minus"><%= link_to '<i class="fa fa-minus-circle" aria-hidden="true"></i>'.html_safe, fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span></h4>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
