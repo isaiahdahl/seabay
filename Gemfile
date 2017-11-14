@@ -20,6 +20,7 @@ gem 'devise'
 gem 'faker'
 gem 'http'
 gem 'httparty'
+gem 'turbolinks'
 
 group :development, :test do
   gem 'pry-byebug'
