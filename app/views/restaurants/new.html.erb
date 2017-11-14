@@ -13,7 +13,7 @@ Location <%= text_field_tag :location %>
 <%= f.input :address %>
 <%= f.input :phone_number %>
 <%= f.input :email %>
-<%= f.input :img_url %>
-<%= f.input :url %>
+<%= f.input :img_url, as: :hidden %>
+<%= f.input :url, as: :hidden %>
 <%= f.submit %> 
 <% end %>
