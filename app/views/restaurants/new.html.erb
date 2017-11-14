@@ -1,2 +1,19 @@
 <h1>Restaurants#new</h1>
 <p>Find me in app/views/restaurants/new.html.erb</p>
+
+<%= form_tag(new_restaurant_path, method: :get) do %>
+Term <%= text_field_tag :term %>
+Location <%= text_field_tag :location %>
+<%= submit_tag 'Search' %>
+<% end %>
+
+
+<%= simple_form_for(@restaurant) do |f| %>
+<%= f.input :name %>
+<%= f.input :address %>
+<%= f.input :phone_number %>
+<%= f.input :email %>
+<%= f.input :img_url %>
+<%= f.input :url %>
+<%= f.submit %> 
+<% end %>

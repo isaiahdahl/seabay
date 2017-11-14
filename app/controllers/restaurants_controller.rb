@@ -24,11 +24,28 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new
+    if params[:term]
+      response = yelp_search(params[:term], params[:location])
+      @restaurants = response["businesses"]
+
+      @restaurant = Restaurant.new(
+        name: @restaurants.first["name"],
+        address: @restaurants.first["location"]["display_address"].join(" "),
+        phone_number: @restaurants.first["phone"],
+        email: Faker::Internet.email,
+        img_url: @restaurants.first["image_url"],
+        url: @restaurants.first["url"],
+        coordinates: @restaurants.first["coordinates"].to_s
+        )
+    else
+      @restaurants = []
+      @restaurant = Restaurant.new
+    end
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user = current_user
     if @restaurant.save
       redirect_to restaurants_path
     else
@@ -56,7 +73,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :coordinates)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :coordinates, :term, :location)
   end
 
   def find_restaurant
