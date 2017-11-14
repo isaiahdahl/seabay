@@ -24,6 +24,6 @@ class FishOrdersController < ApplicationController
   private
 
   def fish_order_params
-    params.require(:fish_order).permit(:fish_id)
+    params.require(:fish_order).permit(:fish_id, :weight_in_grams)
   end
 end
