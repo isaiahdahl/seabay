@@ -1,7 +1,9 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
-    unless search_params.empty?
+    if search_params.empty?
+      @restaurant = Restaurant.all
+    else
       @fish = Fish.all
       search = search_params.to_h
       fish = search.select { |key, value| value == "1" }
@@ -13,8 +15,6 @@ class RestaurantsController < ApplicationController
           @restaurant << FishOrder.where(fish_id: fish.id).first.restaurant
         end
       end
-    else
-      @restaurant = Restaurant.all
     end
   end
 
