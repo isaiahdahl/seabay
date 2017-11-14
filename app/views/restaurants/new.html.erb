@@ -1,19 +1,39 @@
-<h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
-
-<%= form_tag(new_restaurant_path, method: :get) do %>
-Term <%= text_field_tag :term %>
-Location <%= text_field_tag :location %>
-<%= submit_tag 'Search' %>
-<% end %>
-
-
-<%= simple_form_for(@restaurant) do |f| %>
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :phone_number %>
-<%= f.input :email %>
-<%= f.input :img_url, as: :hidden %>
-<%= f.input :url, as: :hidden %>
-<%= f.submit %> 
-<% end %>
+<div class="wrapper">
+  <div class="form-container">
+    <div class="upper-form form-inline text-center">
+          <h2>Add your Restaurant</h2>
+          <h5>Autofill your restaurant profile through Yelp</h5>
+        <div class="form-search">
+          <%= form_tag(new_restaurant_path, method: :get) do %>
+              <div class="yelp-search">
+                <div class="restaurant-form-inputs">
+                  <%= text_field_tag :term, nil ,placeholder: "Restaurant Name" %>
+                  <%= text_field_tag :location, nil ,placeholder: "City" %>
+                  <%= submit_tag 'Search', class: "yelp-button", value: "FIND WITH YELP" %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="form">
+      <%= simple_form_for(@restaurant) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <p>Name</p>
+            <%= f.input :name, label: false, placeholder: "Full Name", required: false %>
+            <p>Address</p>
+            <%= f.input :address, label: false, placeholder: "Address", required: false %>
+            <p>Phone Number</p>
+            <%= f.input :phone_number,  label: false, placeholder: "Phone Number", required: false %>
+            <p>Email</p>
+            <%= f.input :email,  label: false, placeholder: "Email", required: false %>
+            <%= f.input :img_url, as: :hidden %>
+            <%= f.input :url, as: :hidden %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn-block" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
