@@ -13,3 +13,11 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+@import "components/form";
+@import "components/footer";
+@import "components/navbar";
+
+* {
+  margin: 0;
+  padding: 0;
+}
