@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  match "/backend-search" => 'restaurants#index', via: [:post, :get], as: :backend_search
   devise_for :users
   resources :fishorders, only: [:destroy]
   resources :restaurants, only: [:index, :show, :new, :create] do
