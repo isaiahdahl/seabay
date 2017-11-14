@@ -1,0 +1,119 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form {
+  color: #375c69;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  width: 400px;
+  margin: 0 auto;
+  h4 {
+    margin: 0;
+    font-weight: 200;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+}
+
+.radio label, .checkbox label {
+  font-weight: 100 !important;
+  color: #9c9999;
+  font-size: 16px;
+}
+
+.username {
+  outline:none;
+}
+
+.form-inputs {
+  input {
+    background-color:transparent !important;
+    border: 1px solid #375C69 !important;
+    box-shadow: none !important;
+    border-radius: 3px;
+  }
+  .form-control {
+    font-size: 16px !important;
+    font-weight: 100 !important;
+  }
+}
+
+.yelp-button {
+  display: flex;
+  justify-content: center;
+  color: #879da6;
+}
+
+.restaurant-form-inputs {
+  display: flex;
+  justify-content: center;
+  color: #879da6;
+  input {
+    height: 50px;
+    width: 280px;
+    padding: 10px !important;
+    margin: 10px;
+    background-color: transparent !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: none !important;
+    border-radius: 3px;
+  }
+  :last-child {
+    width: 160px;
+    background-color: #879da6 !important;
+    border: 0px solid #ffffff !important;
+
+  }
+}
+
+.left-a-little {
+}
+
+.upper-form {
+  width: 100%;
+  background-color: #375c69;
+  color: #ffffff;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    margin: 0;
+  }
+}
+
+.links {
+  color: #95f563;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.btn-default {
+  color: #879da6 !important;
+  background-color: #96b3bb;
+  border: 0px solid transparent !important;
+  font-weight: 500;
+  height: 50px;
+}
+
+.yelp-button {
+  color: #67838d !important;
+  background-color: #879da6 !important;
+  font-weight: 500;
+  border: 0px solid #ffffff !important;
+}
+
+.form-title {
+  color: #ffffff;
+  margin-top: 30px;
+  p {
+    margin-top: 30px;
+  }
+}
+
