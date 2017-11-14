@@ -1,10 +1,99 @@
+// div {
+//     outline: 1px solid red;
+// }
+
 .card {
+  height: 300px;
   background-size: cover;
   background-position: center;
+  border-radius: 6px;
   color: white;
   font-size: 30px;
   text-align: center;
-  padding: 50px;
-  margin: 20px 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  padding: 10px;
+  margin: 20px 5px;
+  // box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card-body {
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  text-align: left;
+}
+
+.card-avatar {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.card-category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+}
+
+.card-desc {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  color: #fff;
+}
+
+.card-desc h2{
+  font-size: 34px;
+  line-height: 1.3;
+  font-weight:500;
+}
+
+.card-category h4{
+  font-size: 30px;
+  line-height: 1.3;
+  font-weight:400;
+}
+
+.card-footer {
+  height: 50px;
+  position: relative;
+}
+
+.card-links ul {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+  color: #ccc;
+}
+
+.card-links ul li {
+  text-decoration: none;
+  display: inline;
+  margin: 8px;
+}
+
+.card-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.card-links ul li a:hover {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.card-date {
+  position: absolute;
+  bottom: 13px;
+  left: 5px;
+  color: #ccc;
+}
+
+.card-desc h2 a {
+  color: #fff;
 }
