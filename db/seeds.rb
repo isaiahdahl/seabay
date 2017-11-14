@@ -2,6 +2,8 @@ Fish.destroy_all
 User.destroy_all
 Restaurant.destroy_all
 
+Contact.clear_index!
+
 puts "DESTROY DATABASE!!!"
 
 30.times do
@@ -77,6 +79,8 @@ response["businesses"].each do |biz|
     )
   resto.save
 end
+
+Restaurant.reindex!
 
 p "RESTAURANTS: #{Restaurant.all}" 
 
