@@ -78,38 +78,37 @@ response["businesses"].each do |biz|
   resto.save
 end
 
+p "RESTAURANTS: #{Restaurant.all}"
 
-p "RESTAURANTS: #{Restaurant.all}" 
-
-fishes = ["Sardines", 
-"Sea Bream", 
-"Swordfish", 
-"Grouper", 
-"Sea Bass", 
-"Octopus", 
-"Shrimp", 
-"Scarlet Shrimp", 
-"Turbot", 
-"Oysters", 
-"Clams", 
-"Razor Clams", 
-"Crab", 
-"Lobster", 
-"European Lobster", 
-"Squid", 
-"Cuttlefish", 
-"Prawns", 
-"Hake", 
-"Lamprey", 
-"Mackerel", 
-"Scabbard", 
-"Mussels", 
-"Scallops", 
-"Ray Fish", 
-"Tuna", 
-"Atlantic Wreckfish", 
-"Flounder", 
-"John Dory", 
+fishes = ["Sardines",
+"Sea Bream",
+"Swordfish",
+"Grouper",
+"Sea Bass",
+"Octopus",
+"Shrimp",
+"Scarlet Shrimp",
+"Turbot",
+"Oysters",
+"Clams",
+"Razor Clams",
+"Crab",
+"Lobster",
+"European Lobster",
+"Squid",
+"Cuttlefish",
+"Prawns",
+"Hake",
+"Lamprey",
+"Mackerel",
+"Scabbard",
+"Mussels",
+"Scallops",
+"Ray Fish",
+"Tuna",
+"Atlantic Wreckfish",
+"Flounder",
+"John Dory",
 "Monkfish"
 ]
 
@@ -117,7 +116,7 @@ fishes.each do |fish|
   Fish.create(name: fish)
 end
 
-p "FISH: #{Fish.all}" 
+p "FISH: #{Fish.all}"
 
 
 30.times do
