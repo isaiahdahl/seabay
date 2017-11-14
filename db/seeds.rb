@@ -78,7 +78,7 @@ response["businesses"].each do |biz|
   resto.save
 end
 
-p "RESTAURANTS: #{Restaurant.all}"
+p "Finished creating restaurants"
 
 fishes = ["Sardines",
 "Sea Bream",
@@ -128,7 +128,12 @@ p "FISH: #{Fish.all}"
     )
 end
 
+puts "creating 100 fish orders for the created restaurants"
+100.times do
+  FishOrder.create(fish_id: (1..30).to_a.sample, restaurant_id: (1..30).to_a.sample, weight_in_grams: (1..10).to_a.sample)
+end
 
+puts "finished"
 
 
 
