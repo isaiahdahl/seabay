@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'devise'
 gem 'faker'
 gem 'http'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-byebug'
