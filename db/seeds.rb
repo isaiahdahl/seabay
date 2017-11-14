@@ -78,7 +78,6 @@ response["businesses"].each do |biz|
   resto.save
 end
 
-
 p "RESTAURANTS: #{Restaurant.all}"
 
 fishes = ["Sardines",
