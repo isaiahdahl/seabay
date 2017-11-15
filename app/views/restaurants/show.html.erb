@@ -1,43 +1,46 @@
-<div class="container">
-  <div class="text-center">
+
+<div class="top-container">
+  <div class="top-container-left">
     <h2><%= @restaurant.name %></h2>
+    <div class="description">
+      
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.email %></p>
+    </div>
+
   </div>
-
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="banner">
-        <%= image_tag @restaurant.img_url, width: 400 %>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <div class="description" style="margin-top: 30">
-        <p><%= @restaurant.address %></p>
-        <p><%= @restaurant.phone_number %></p>
-        <p><%= @restaurant.email %></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="text-center">
-      <h2>Add Fish Order</h2>
-      <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
-      <%= f.input :fish_id, collection: @fish %>
-      <%= f.submit %> 
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-      <ul>
-        <% @restaurant.fish_orders.each do |order| %>
-        <li>
-          <%= order.fish.name %> 
-          <span class="plus-minus"><%= link_to '<i class="fa fa-minus-circle" aria-hidden="true"></i>'.html_safe, fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span>
-        </li>
-        <% end %>
-      </ul>
+  <div class="top-container-right">
+    <div class="banner">
+      <%= image_tag @restaurant.img_url, width: 400 %>
     </div>
   </div>
 </div>
-
+<div class="text-center">
+  <div class="fish-form">
+    <p><%= Time.now.strftime("%A, %B %C, %G") %></p>
+    <h3>Today we're looking for</h3>
+    <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
+        <div class="yelp-search">
+          <div class="fish-form-inputs">
+            <%= f.input :weight_in_grams, label: false, prompt: "kg", collection: (1..10).to_a %>
+            <%= f.input :fish_id, label: false, prompt: "Fish", collection: @fish %>
+            <%= f.submit value: "Add" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+<div class="fish-cards">
+    <% @restaurant.fish_orders.each do |order| %>
+        <div class="fish-card">
+          <div class="fish-card-info">
+            <h4><%= order.fish.name %></h4>
+            <p><%= order.weight_in_grams %> kg</p>
+          </div>
+          <div class="fish-card-exit">
+            <span class="plus-minus"><%= link_to image_tag("delete-icon.png", border: 0, class: "icon"), fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span>
+          </div>
+        </div>
+    <% end %>
+</div>

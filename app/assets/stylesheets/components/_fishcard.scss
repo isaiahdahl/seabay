@@ -1,0 +1,45 @@
+.fish-cards {
+  background-color: #e6f4f3;
+  width: 100%;
+  min-height: 350px;
+  margin: 0;
+  padding: 30px 100px;
+  display: inline-flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.fish-card {
+  height: 110px;
+  width: 210px;
+  background-color: transparent;
+  color: $gray;
+  margin: 10px;
+  border: 1px solid #557580 !important;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+  h4 {
+    margin: 0;
+  }
+  p {
+    font-weight: 200;
+    color: #1e2020;
+    justify-self: flex-end;
+    margin: 0;
+  }
+}
+
+.fish-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
+}

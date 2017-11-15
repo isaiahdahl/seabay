@@ -1,0 +1,80 @@
+.top-container {
+  display: flex;
+  height: 50vh;
+  margin: 0 auto;
+  background-size: cover !important;
+}
+
+.top-container-left {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 40px 80px;
+  h2 {
+    margin: 0 0 10px;
+  }
+}
+
+.top-container-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 55%;
+  background-size: cover !important;
+  img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
+.fish-form {
+  width: 100%;
+  background-color: #f4faf9;
+  color: #000000;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    margin: 0;
+  }
+  h3 {
+    margin: 0 0 20px;
+    font-weight: 400;
+  }
+}
+
+.fish-form-inputs {
+  display: flex;
+  justify-content: center;
+  color: #a8babe;
+  input {
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    box-shadow: none !important;
+    border-radius: 3px;
+    padding: 0 10px 0 10px !important;
+    background-color: #879da6 !important;
+    border: 0px solid #ffffff !important;
+  }
+  select {
+    height: 50px;
+    width: 280px;
+    margin: 10px;
+    box-shadow: none !important;
+    border-radius: 3px;
+    padding: 0 10px 0 10px !important;
+    background-color: transparent !important;
+    border: 1px solid #557580 !important;
+    &#fish_order_weight_in_grams {
+      width: 100px;
+    }
+  }
+}
+
+
