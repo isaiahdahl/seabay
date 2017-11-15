@@ -20,7 +20,6 @@ gem 'devise'
 gem 'faker'
 gem 'http'
 gem 'httparty'
-gem 'turbolinks'
 gem "geocoder"
 
 gem "coffee-rails"
