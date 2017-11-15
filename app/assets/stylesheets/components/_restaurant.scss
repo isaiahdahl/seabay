@@ -51,7 +51,7 @@
 .fish-form-inputs {
   display: flex;
   justify-content: center;
-  color: #a8babe;
+  color: white;
   input {
     height: 50px;
     width: 100px;
@@ -59,8 +59,11 @@
     box-shadow: none !important;
     border-radius: 3px;
     padding: 0 10px 0 10px !important;
-    background-color: #879da6 !important;
+    background-color: #648791 !important;
     border: 0px solid #ffffff !important;
+    &:hover {
+      background-color: #375C69 !important;
+    }
   }
   select {
     height: 50px;
