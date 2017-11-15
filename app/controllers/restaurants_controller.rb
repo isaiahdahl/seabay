@@ -42,8 +42,7 @@ class RestaurantsController < ApplicationController
         phone_number: @restaurants.first["phone"],
         email: Faker::Internet.email,
         img_url: @restaurants.first["image_url"],
-        url: @restaurants.first["url"],
-        coordinates: @restaurants.first["coordinates"].to_s
+        url: @restaurants.first["url"]
         )
     else
       @restaurants = []
@@ -55,7 +54,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant.id)
     else
       # GO BACK TO THE FORM
       render :new
