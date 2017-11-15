@@ -20,7 +20,7 @@
 
               <div class="filter-inputs">
                 <%= f.submit 'Search for fish!' %>
-                <%= button_to "Clear filters", restaurants_path, :method => "get" %>
+                <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
               </div>
           <% end %>
         </div>
