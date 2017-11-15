@@ -1,29 +1,49 @@
 <div class="main-container">
 
   <div class="container">
-    <div class="row">
+    <div class="index-container">
+      <div class="index-left">
+        <div class="checkbox">
+          <div class="dropdown">
+            <button class="filter-inputs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <p>Pick some fish!<span class="caret"></span></p>
+            </button>
+            <ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="dropdownMenu1">
+              <div class="filters">
+                <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
+                    <% @fish.each do |fish| %>
+                        <li><%= f.input fish, as: :boolean %></li>
+                    <% end %>
+                    </div>
+                    </ul>
+                    </div>
 
-      <%= render 'shared/filter' %>
-
-      <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
-          <% @fish.each do |fish| %>
-              <%= f.input fish, as: :boolean %>
+              <div class="filter-inputs">
+                <%= f.submit 'Search for fish!' %>
+                <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
+              </div>
           <% end %>
-          <%= f.submit %>
-      <% end %>
-      
-      <% @restaurants.each do |c| %>
-        <div class="col-xs-12 col-sm-6">
-          <%= render 'shared/card', restaurant: c %>
         </div>
-      <% end %>
-
-
+        <div class="restaurants">
+          <div class="row">
+            <% @restaurants.each do |c| %>
+                <div class="col-xs-12 col-sm-6">
+                  <%= render 'shared/card', restaurant: c %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="map-right">
+        <div id="map">
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="map">
-  </div>
+
+
+
 
   <% content_for(:after_js) do %>
     <script>

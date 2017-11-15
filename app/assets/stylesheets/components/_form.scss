@@ -105,6 +105,26 @@
   }
 }
 
+.stupid-button {
+  display: flex;
+  background-color:transparent !important;
+  border: 1px solid #375C69 !important;
+  box-shadow: none !important;
+  border-radius: 3px;
+  height: 50px;
+  margin: 10px;
+  padding: 0 20px 0 20px;
+  align-items: center;
+  text-decoration: none;
+  list-style-type: none;
+  color: #333333;
+  &:hover {
+    text-decoration: none;
+    list-style-type: none;
+    color: #333333;
+  }
+}
+
 .yelp-button {
   color: #375C69 !important;
   background-color: #F3FAF9 !important;
