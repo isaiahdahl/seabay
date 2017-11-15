@@ -40,7 +40,7 @@ class RestaurantsController < ApplicationController
         name: @restaurants.first["name"],
         address: @restaurants.first["location"]["display_address"].join(" "),
         phone_number: @restaurants.first["phone"],
-        email: Faker::Internet.email,
+        email: current_user.email,
         img_url: @restaurants.first["image_url"],
         url: @restaurants.first["url"],
         coordinates: @restaurants.first["coordinates"].to_s
