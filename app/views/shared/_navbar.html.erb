@@ -10,7 +10,7 @@
           <!-- Links when logged in -->
           <%= link_to "Register Restaurant", new_restaurant_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <%= link_to "My Restaurant", restaurant_path(is_restaurant_owner?), class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to "Log-Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
 
           <!-- Avatar with dropdown menu -->
           <div class="navbar-wagon-item">
@@ -77,7 +77,7 @@
       <div class="navbar-wagon">
     <!-- Logo -->
     <%= link_to "seaBay", root_path , class: "navbar-wagon-brand" %>
-    
+
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <%= link_to t(".sign_in", default: "Sign-In"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
