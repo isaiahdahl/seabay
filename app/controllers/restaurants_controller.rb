@@ -2,12 +2,6 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
-    
-    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
-      marker.lat restaurant.latitude
-      marker.lng restaurant.longitude
-      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { restaurant: restaurant })
-    end
 
     if search_params.empty?
       @restaurants
@@ -23,6 +17,11 @@ class RestaurantsController < ApplicationController
           @restaurants << FishOrder.where(fish_id: fish.id).first.restaurant
         end
       end
+    end
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { restaurant: restaurant })
     end
   end
 
