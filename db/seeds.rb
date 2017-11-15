@@ -72,7 +72,6 @@ response["businesses"].each do |biz|
     email: Faker::Internet.email,
     img_url: biz["image_url"],
     url: biz["url"],
-    coordinates: biz["coordinates"].to_s,
     user_id: user_id += 1
     )
   resto.save
