@@ -10,4 +10,11 @@ module ApplicationHelper
     end
     my_restaurant.first
   end
+  def photo?(elm)
+    if elm.img_url?
+      elm.img_url
+    else
+      image_path "fisherman.jpg"
+    end
+  end
 end

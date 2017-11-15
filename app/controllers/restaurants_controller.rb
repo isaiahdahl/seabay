@@ -2,12 +2,6 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
-    
-    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
-      marker.lat restaurant.latitude
-      marker.lng restaurant.longitude
-      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { restaurant: restaurant })
-    end
 
     if search_params.empty?
       @restaurants
@@ -23,6 +17,11 @@ class RestaurantsController < ApplicationController
           @restaurants << FishOrder.where(fish_id: fish.id).first.restaurant
         end
       end
+    end
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { restaurant: restaurant })
     end
   end
 
@@ -40,10 +39,9 @@ class RestaurantsController < ApplicationController
         name: @restaurants.first["name"],
         address: @restaurants.first["location"]["display_address"].join(" "),
         phone_number: @restaurants.first["phone"],
-        email: Faker::Internet.email,
+        email: current_user.email,
         img_url: @restaurants.first["image_url"],
-        url: @restaurants.first["url"],
-        coordinates: @restaurants.first["coordinates"].to_s
+        url: @restaurants.first["url"]
         )
     else
       @restaurants = []
@@ -55,7 +53,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant.id)
     else
       # GO BACK TO THE FORM
       render :new

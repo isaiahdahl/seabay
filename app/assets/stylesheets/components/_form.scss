@@ -95,11 +95,14 @@
 }
 
 .btn-default {
-  color: #879da6 !important;
-  background-color: #96b3bb;
+  color: white !important;
+  background-color: #648791;
   border: 0px solid transparent !important;
   font-weight: 500;
   height: 50px;
+  &:hover {
+    background-color: #375C69;
+  }
 }
 
 .stupid-button {
@@ -123,10 +126,14 @@
 }
 
 .yelp-button {
-  color: #67838d !important;
-  background-color: #879da6 !important;
+  color: #375C69 !important;
+  background-color: #F3FAF9 !important;
   font-weight: 500;
+  font-size: 16px;
   border: 0px solid #ffffff !important;
+  &:hover {
+    background-color: white !important;
+  }
 }
 
 .form-title {
