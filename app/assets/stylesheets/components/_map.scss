@@ -1,0 +1,18 @@
+.main-container {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.container {
+  flex: 1 1 auto;
+}
+
+#map {
+  background-color: #96B3BB;
+  flex: 0 0 450px;
+  height: calc(100vh);
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}

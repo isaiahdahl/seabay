@@ -1,20 +1,27 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   def index
+    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+
     if search_params.empty?
-      @restaurant = Restaurant.all
+      @restaurants
     else
       @fish = Fish.all
       search = search_params.to_h
       fish = search.select { |key, value| value == "1" }
       f = []
       fish.keys.each { |name| f << Fish.where(name: name).first }
-      @restaurant = []
+      @restaurants = []
       f.each do |fish|
         if FishOrder.where(fish_id: fish.id).first
-          @restaurant << FishOrder.where(fish_id: fish.id).first.restaurant
+          @restaurants << FishOrder.where(fish_id: fish.id).first.restaurant
         end
       end
+    end
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { restaurant: restaurant })
     end
   end
 
@@ -32,10 +39,9 @@ class RestaurantsController < ApplicationController
         name: @restaurants.first["name"],
         address: @restaurants.first["location"]["display_address"].join(" "),
         phone_number: @restaurants.first["phone"],
-        email: Faker::Internet.email,
+        email: current_user.email,
         img_url: @restaurants.first["image_url"],
-        url: @restaurants.first["url"],
-        coordinates: @restaurants.first["coordinates"].to_s
+        url: @restaurants.first["url"]
         )
     else
       @restaurants = []
@@ -47,7 +53,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant.id)
     else
       # GO BACK TO THE FORM
       render :new
@@ -70,14 +76,10 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path
   end
 
-  def my_restaurants
-    @restos = Restaurant.where( user_id: current_user.id)
-  end
-
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :coordinates, :term, :location)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :term, :location)
   end
 
   def find_restaurant

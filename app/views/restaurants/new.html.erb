@@ -25,8 +25,7 @@
             <%= f.input :address, label: false, placeholder: "Address", required: false %>
             <p>Phone Number</p>
             <%= f.input :phone_number,  label: false, placeholder: "Phone Number", required: false %>
-            <p>Email</p>
-            <%= f.input :email,  label: false, placeholder: "Email", required: false %>
+            <%= f.input :email, as: :hidden %>
             <%= f.input :img_url, as: :hidden %>
             <%= f.input :url, as: :hidden %>
           </div>
@@ -34,6 +33,7 @@
             <%= f.button :submit, "Sign up", class: "btn-block" %>
           </div>
       <% end %>
+
     </div>
   </div>
 </div>
