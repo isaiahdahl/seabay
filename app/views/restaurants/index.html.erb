@@ -12,12 +12,11 @@
               <div class="filters">
                 <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
                     <% @fish.each do |fish| %>
-                        <li><%= f.input fish, as: :boolean %></li>
+                        <li><%= f.input fish, as: :boolean, input_html: { checked: params[fish].to_i == 1 } %></li>
                     <% end %>
                     </div>
                     </ul>
                     </div>
-
               <div class="filter-inputs">
                 <%= f.submit 'Search for fish!' %>
                 <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
@@ -26,11 +25,14 @@
         </div>
         <div class="restaurants">
           <div class="row">
-            <% @restaurants.each do |c| %>
+            <% sorted = @restaurants.sort {|a,b| compare(b).size<=>compare(a).size } %>
+            <% sorted.each do |c| %>
+              <%= link_to restaurant_path(id: c.id) do %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render 'shared/card', restaurant: c %>
                 </div>
             <% end %>
+          <% end %>
           </div>
         </div>
       </div>
