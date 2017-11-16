@@ -8,6 +8,34 @@
   border: 0px solid transparent !important;
 }
 
+.btn-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white !important;
+  padding: 10px 20px;
+  height: 50px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #648791;
+  border: 0px solid transparent !important;
+}
+
+.btn-solid-pill {
+  text-decoration: none;
+  color: #648791 !important;
+  margin: 4px;
+  height: 30px;
+  padding: 2px 7px 2px 7px;
+  border-radius: 15px;
+  font-weight: 500;
+  background-color: transparent !important;
+  border: 1px solid #648791 !important;
+  display: flex;
+  justify-content: center;
+}
+
 .btn-solid:hover {
   text-decoration: none;
   background-color: #375C69;

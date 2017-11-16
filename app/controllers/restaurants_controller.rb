@@ -8,20 +8,22 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
     if search_params.empty?
       @restaurants
+      @f = "Press the button to search for fish"
     else
       @fish = Fish.all
       search = search_params.to_h
       fish = search.select { |key, value| value == "1" }
-      f = []
-      fish.keys.each { |name| f << Fish.where(name: name).first }
+      @f = []
+      fish.keys.each { |name| @f << Fish.where(name: name).first }
       @restaurants = []
-      f.each do |fish|
+      @f.each do |fish|
         if FishOrder.where(fish_id: fish.id).first
           @restaurants << FishOrder.where(fish_id: fish.id).first.restaurant
         end
       end
     end
     @restaurants = @restaurants.uniq
+
 
     @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
@@ -82,7 +84,6 @@ class RestaurantsController < ApplicationController
   end
 
   def my_restaurant
-
       @fish = Fish.order("name asc")
       @fishorder = FishOrder.new
       flash[:alert] = "YOU'RE NOT AUTHORIZED TO INITIATE A DUEL UNTIL YOU BECOME A NINJA, BUT YOU CAN BE INVITED TO A DUEL" if params[:alert].present?
