@@ -1,7 +1,7 @@
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= photo?(restaurant) %>');">
 
   <div class="card-body">
-    <div class="card-category">
+    <div class="card-category text-center">
       <% compare(restaurant) %>
       <% if !@intersection.empty? %>
           <h4><%= @intersection.size %></h4>
