@@ -10,6 +10,6 @@ class UserMailer < ApplicationMailer
     @user = user
     @greeting = "Hi"
 
-    mail(to: @user.email, subject: 'We have fish for you!')
+    mail(to: @restaurant.email, subject: 'We have fish for you!')
   end
 end

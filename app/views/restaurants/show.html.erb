@@ -12,21 +12,6 @@
   <div class="top-container-right" style="background-image: url('<%= photo?(@restaurant) %>');">
   </div>
 </div>
-<div class="text-center">
-  <div class="fish-form">
-    <p><%= Time.now.strftime("%A, %B %e, %G") %></p>
-    <h3>Today we're looking for</h3>
-    <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
-    <div class="yelp-search">
-      <div class="fish-form-inputs">
-        <%= f.input :weight_in_grams, label: false, prompt: "kg", collection: (1..10).to_a %>
-        <%= f.input :fish_id, label: false, prompt: "Fish", collection: @fish %>
-        <%= f.submit value: "Add" %>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div>
 
 <div class="bottom-container">
   <div class="bottom-container-left">
@@ -46,9 +31,17 @@
   </div>
   <div class="bottom-container-right">
     <div class="checkout">
+      <%= simple_form_for [@restaurant, @fishorder], :url => email_order_restaurant_path do |f| %>
+        <% @restaurant.fish_orders.each do |order| %>
+          <div class="checkout-form-inputs">
+            <%= f.input :weight_in_grams, label: false, collection: (1..order.weight_in_grams).to_a, selected: order.weight_in_grams %>
+            <p>kg of <%= order.fish.name %></p>
+          </div>
+        <% end %>
+      <%= f.submit value: "Email Restaurant", class: "btn-solid" %>
+      <% end %>
       <div class="checkout-header text-center">
       </div>
-
     </div>
   </div>
 </div>
