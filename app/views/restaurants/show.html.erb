@@ -51,16 +51,7 @@
     <div class="checkout">
       <div class="checkout-header text-center">
       </div>
-      <% @restaurant.fish_orders.each do |order| %>
-      <%= simple_form_for([@restaurant, order]), method: :post do |f| %>
-      <div class="yelp-search">
-        <div class="fish-form-checkout">
-          <%= f.input :weight_in_grams, label: order.fish.name, prompt: "kg", collection: (1..10).to_a %>
-          <%= f.submit value: "Add" %>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
+      
     </div>
   </div>
 </div>
