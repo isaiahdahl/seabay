@@ -60,3 +60,18 @@
 .headline {
   margin-bottom: 40px;
 }
+
+.btn-clear {
+  text-decoration: none;
+  color: white !important;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #B9E4E2;
+  border: 0px solid transparent !important;
+}
+
+.btn-clear:hover {
+  text-decoration: none;
+  background-color: #96B3BB;
+}

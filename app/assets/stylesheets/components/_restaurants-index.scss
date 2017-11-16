@@ -22,10 +22,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: space-between;
-    margin: 0;
+    margin: 0px;
     :first-child {
       height: 30px;
-      width: 170px;
+      width: 300px;
     }
   }
 }
@@ -125,3 +125,7 @@
     border-radius: 3px;
   }
 }
+
+
+
+
