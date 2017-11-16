@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @array = [" Table", " Restaurants", " You"]
+    @array = ["Fish To Table", "Fish To Restaurants", "Fish To You"]
   end
 end

@@ -3,7 +3,6 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!
   def index
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
-
     if search_params.empty?
       @restaurants
     else
@@ -19,6 +18,8 @@ class RestaurantsController < ApplicationController
         end
       end
     end
+    @restaurants = @restaurants.uniq
+
     @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude

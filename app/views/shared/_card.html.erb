@@ -2,9 +2,14 @@
 
   <div class="card-body">
     <div class="card-category">
-      <h4><%= restaurant.fish_orders.count %></h4>
-      <%= image_tag "fish_solid.png", class: "card-icon" %>
-      <h5>MATCH</h5>
+      <% compare(restaurant) %>
+      <% if !@intersection.empty? %>
+          <h4><%= @intersection.size %></h4>
+          <%= image_tag "fish_solid.png", class: "card-icon" %>
+          <h5>MATCH</h5>
+      <% else %>
+          <h4></h4>
+      <% end %>
     </div>
 
     <div class="card-desc">
