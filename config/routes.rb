@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show, :new, :create] do
     resources :fish_orders, only: [:new, :create]
+    member do
+      get "my_restaurant"
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
