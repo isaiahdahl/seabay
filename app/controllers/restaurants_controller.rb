@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy, :my_restaurant]
+  before_action :authenticate_user!
   def index
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
 
@@ -74,6 +75,11 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to restaurants_path
+  end
+
+  def my_restaurant
+      @fish = Fish.order("name asc")
+      @fishorder = FishOrder.new
   end
 
   private
