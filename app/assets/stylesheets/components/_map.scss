@@ -31,7 +31,14 @@
   p {
     font-size: 16px;
   }
+  .btn-solid {
+    display: inline-block;
+    margin-top: -25px;
+    margin-bottom: 6px;
+  }
 }
+
+
 
 .top-line {
   margin-bottom: 20px;
@@ -43,3 +50,34 @@
   margin-top: 12px;
 }
 
+.switch {
+  display: block;
+  // padding-left: 15px;
+  text-indent: 8px;
+  // line-height: 20px;
+}
+
+.checkbox {
+  width: 230px;
+  line-height: 1.9;
+  // padding-right: 40px;
+  :last-child {
+    input {
+    width: 300px;
+    }
+  }
+}
+
+// .fish_name {
+//   width: 300px;
+// }
+
+// div.boolean, .simple_form input[type='submit'] {
+//   margin-left: 120px;
+// }
+
+// .fish_name input {
+//   width: 300px;
+//   // float: left;
+//   // margin: 100px;
+// }
