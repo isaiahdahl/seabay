@@ -16,10 +16,12 @@
 
 .filters {
   height: 300px;
+  margin: 0;
   display: flex;
   :first-child {
     display: flex;
     flex-wrap: wrap;
+    align-items: space-between;
     margin: 0;
     :first-child {
       height: 30px;
@@ -28,11 +30,38 @@
   }
 }
 
+.tags {
+  flex-grow: 1;
+  border: 1px solid #557580 !important;
+  border-radius: 3px;
+}
 
-.checkbox {
+.filter-names {
+  margin: 10px 0 10px 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  :first-child {
+    margin-right: 10px;
+  }
+}
+
+.search-button {
+  height: 50px;
+  width: 200px;
+}
+
+.checkbox {
+ display: flex;
+ flex-wrap: wrap;
+ :first-child {
+    margin: 1px 5px 1px 5px;
+  }
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .map-right {
@@ -73,12 +102,14 @@
 .filter-inputs {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color:transparent !important;
   box-shadow: none !important;
   border: none;
   border-radius: 3px;
   padding: 10px;
   height: 50px;
+  margin: 30px;
   input {
     background-color:transparent !important;
     border: 1px solid #375C69 !important;
