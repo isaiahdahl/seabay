@@ -12,12 +12,11 @@
               <div class="filters">
                 <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
                     <% @fish.each do |fish| %>
-                        <li><%= f.input fish, as: :boolean %></li>
+                        <li><%= f.input fish, as: :boolean, input_html: { checked: params[fish].to_i == 1 } %></li>
                     <% end %>
                     </div>
                     </ul>
                     </div>
-
               <div class="filter-inputs">
                 <%= f.submit 'Search for fish!' %>
                 <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
