@@ -78,8 +78,8 @@ class RestaurantsController < ApplicationController
   end
 
   def my_restaurant
-    @fish = Fish.order("name asc")
-    @fishorder = FishOrder.new
+      @fish = Fish.order("name asc")
+      @fishorder = FishOrder.new
   end
 
   private
