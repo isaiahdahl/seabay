@@ -79,8 +79,15 @@ class RestaurantsController < ApplicationController
   end
 
   def my_restaurant
-      @fish = Fish.order("name asc")
-      @fishorder = FishOrder.new
+    @fish = Fish.order("name asc")
+    @fishorder = FishOrder.new
+  end
+
+  def email_order
+    @user = current_user
+    @restaurant = Restaurant.find(params[:id])
+    UserMailer.order(@user, @restaurant).deliver_now
+    redirect_to restaurant_path(@restaurant)
   end
 
   private

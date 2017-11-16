@@ -1,9 +1,9 @@
-<h3>Hi <%= @restaurant %>,</h3>
+<h3>Hi <%= @restaurant.name %>,</h3>
 
-<p><%= @user.name  %> wants to sell you the following fish:</p>
+<p><%= @user.email  %> wants to sell you the following fish:</p>
 
 <ul>
-  <li>Mackerel</li>
-  <li>Tuna</li>
-  <li>Mussels</li>
+<% @restaurant.fishes.each do |fish| %>
+  <li><%= fish.name %></li>
+<% end %>
 </ul>
