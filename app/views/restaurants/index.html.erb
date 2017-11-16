@@ -25,7 +25,8 @@
         </div>
         <div class="restaurants">
           <div class="row">
-            <% @restaurants.each do |c| %>
+            <% sorted = @restaurants.sort {|a,b| compare(b).size<=>compare(a).size } %>
+            <% sorted.each do |c| %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render 'shared/card', restaurant: c %>
                 </div>
