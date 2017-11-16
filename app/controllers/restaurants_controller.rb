@@ -2,6 +2,9 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy, :my_restaurant]
   before_action :authenticate_user!
   def index
+
+    flash.now[:notice] = "You order has been correctly added" if params[:notice].present?
+
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
     if search_params.empty?
       @restaurants
@@ -79,8 +82,10 @@ class RestaurantsController < ApplicationController
   end
 
   def my_restaurant
+
       @fish = Fish.order("name asc")
       @fishorder = FishOrder.new
+      flash[:alert] = "YOU'RE NOT AUTHORIZED TO INITIATE A DUEL UNTIL YOU BECOME A NINJA, BUT YOU CAN BE INVITED TO A DUEL" if params[:alert].present?
   end
 
   private

@@ -23,7 +23,9 @@
             <%= f.input :weight_in_grams, label: false, prompt: "kg", collection: (1..10).to_a %>
             <%= f.input :fish_id, label: false, prompt: "Fish", collection: @fish %>
             <%= f.submit value: "Add" %>
+            <%= link_to "Order complete", restaurants_path(notice: true) %>
           </div>
+
         </div>
     <% end %>
   </div>

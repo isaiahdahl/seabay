@@ -13,12 +13,11 @@ class FishOrdersController < ApplicationController
       redirect_to my_restaurant_restaurant_path(@fish_order.restaurant)
     else
       if FishOrder.where(fish_id: fish_order_params["fish_id"], restaurant_id: params[:restaurant_id]).any?
-        
         flash[:alert] = "You already added this fish"
         redirect_to my_restaurant_restaurant_path(@fish_order.restaurant)
       else
         if @fish_order.save
-          redirect_to restaurant_path(@fish_order.restaurant)
+          redirect_to my_restaurant_restaurant_path(@fish_order.restaurant)
         else
           render :new
         end
@@ -29,7 +28,7 @@ class FishOrdersController < ApplicationController
   def destroy
     @fish_order = FishOrder.find(params[:id])
     @fish_order.destroy
-    redirect_to restaurant_path(@fish_order.restaurant_id)
+    redirect_to my_restaurant_restaurant_path(@fish_order.restaurant)
   end
 
   private
