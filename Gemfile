@@ -21,6 +21,7 @@ gem 'faker'
 gem 'http'
 gem 'httparty'
 gem "geocoder"
+gem 'typing'
 
 gem "coffee-rails"
 gem "gmaps4rails"
