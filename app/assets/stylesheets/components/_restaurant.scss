@@ -5,6 +5,13 @@
   background-size: cover !important;
 }
 
+.bottom-container {
+  display: flex;
+  height: 50vh;
+  margin: 0 auto;
+  background-size: cover !important;
+}
+
 .description {
   margin-top: 30px;
 }
@@ -20,6 +27,12 @@
   }
 }
 
+.bottom-container-left {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
 .top-container-right {
   display: flex;
   justify-content: center;
@@ -33,6 +46,13 @@
     object-fit: cover;
     overflow: hidden;
   }
+}
+
+.bottom-container-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
 }
 
 .fish-form {
@@ -84,4 +104,15 @@
   }
 }
 
+.checkout {
+  background-color: #60838D;
+  color: #fff;
+  width: 100%;
+  min-height: 390px;
+  margin: 0;
+  padding: 20px 10px;
+  display: inline-flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
 
