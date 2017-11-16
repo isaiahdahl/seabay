@@ -32,17 +32,16 @@
 
 .tags {
   flex-grow: 1;
-  border: 1px solid #557580 !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
   border-radius: 3px;
 }
 
 .filter-names {
   margin: 10px 0 10px 0;
   display: flex;
-  justify-content: space-between;
-  :first-child {
-    margin-right: 10px;
-  }
 }
 
 .search-button {
