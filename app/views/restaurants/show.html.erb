@@ -9,10 +9,7 @@
     </div>
 
   </div>
-  <div class="top-container-right">
-    <div class="banner">
-      <%= image_tag @restaurant.img_url %>
-    </div>
+  <div class="top-container-right" style="background-image: url('<%= photo?(@restaurant) %>');">
   </div>
 </div>
 <div class="text-center">
@@ -51,7 +48,7 @@
     <div class="checkout">
       <div class="checkout-header text-center">
       </div>
-      
+
     </div>
   </div>
 </div>
