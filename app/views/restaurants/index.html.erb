@@ -26,11 +26,14 @@
         </div>
         <div class="restaurants">
           <div class="row">
-            <% @restaurants.each do |c| %>
-                <div class="col-xs-12 col-sm-6">
-                  <%= render 'shared/card', restaurant: c %>
-                </div>
-            <% end %>
+
+              <% @restaurants.each do |c| %>
+                  <%= link_to restaurant_path(id: c.id) do %>
+                  <div class="col-xs-12 col-sm-6">
+                    <%= render 'shared/card', restaurant: c %>
+                  </div>
+                  <% end %>
+              <% end %>
           </div>
         </div>
       </div>
