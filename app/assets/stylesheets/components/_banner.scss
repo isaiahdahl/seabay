@@ -7,7 +7,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  span :last-child {
+    color: white !important;
+    background-color: transparent !important;
+  }
 }
+
+
+.typing-container {
+  display: flex;
+  margin-left: 5px;
+}
+
 .banner h1 {
   font-size: 50px;
   font-weight: 400;
@@ -42,4 +53,9 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.banner-content:selection {
+  background: transparent;
+  color: transparent;
 }
