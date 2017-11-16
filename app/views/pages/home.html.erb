@@ -5,7 +5,7 @@
 <section id="services">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
+      <div id="header" class="col-lg-12 text-center">
         <h2 class="section-heading">How it works</h2>
       </div>
     </div>
@@ -13,19 +13,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-4 text-center">
-        <div class="service-box mt-5 mx-auto">
+        <div id="icon-1"class="service-box mt-5 mx-auto">
           <%= image_tag "list.png", class: "home-icon" %>
           <p class="text-muted home-description">Restaurants create their list of fish needed for the day</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 text-center">
-        <div class="service-box mt-5 mx-auto">
+        <div id="icon-2"class="service-box mt-5 mx-auto">
           <%= image_tag "fish.png", class: "home-icon" %>
           <p class="text-muted home-description">Fishermen post their daily catch and find restaurants that match what they caught</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 text-center">
-        <div class="service-box mt-5 mx-auto">
+        <div id="icon-3"class="service-box mt-5 mx-auto">
           <%= image_tag "envelope.png", class: "home-icon" %>
           <p class="text-muted home-description">When there is a match, fishermen can contact restaurants and make a sale</p>
         </div>
@@ -36,7 +36,7 @@
 </section>
 
 <div class="resto-banner" style="background-color: #E3F3F2" >
-  <div class="banner-content">
+  <div id="resto-content" class="banner-content">
     <h1 class="headline">Owner of a Seafood Restaurant?</h1>
     <%= link_to "SIGN UP", new_user_registration_path, class: "btn-solid" %>
   </div>
