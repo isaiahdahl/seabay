@@ -17,29 +17,51 @@
 </div>
 <div class="text-center">
   <div class="fish-form">
-    <p><%= Time.now.strftime("%A, %B %C, %G") %></p>
+    <p><%= Time.now.strftime("%A, %B %e, %G") %></p>
     <h3>Today we're looking for</h3>
     <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
-        <div class="yelp-search">
-          <div class="fish-form-inputs">
-            <%= f.input :weight_in_grams, label: false, prompt: "kg", collection: (1..10).to_a %>
-            <%= f.input :fish_id, label: false, prompt: "Fish", collection: @fish %>
-            <%= f.submit value: "Add" %>
-          </div>
-        </div>
+    <div class="yelp-search">
+      <div class="fish-form-inputs">
+        <%= f.input :weight_in_grams, label: false, prompt: "kg", collection: (1..10).to_a %>
+        <%= f.input :fish_id, label: false, prompt: "Fish", collection: @fish %>
+        <%= f.submit value: "Add" %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
-<div class="fish-cards">
-    <% @restaurant.fish_orders.each do |order| %>
-        <div class="fish-card">
-          <div class="fish-card-info">
-            <h4><%= order.fish.name %></h4>
-            <p><%= order.weight_in_grams %> kg</p>
-          </div>
-          <div class="fish-card-exit">
-            <span class="plus-minus"><%= link_to image_tag("delete-icon.png", border: 0, class: "icon"), fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span>
-          </div>
+
+<div class="bottom-container">
+  <div class="bottom-container-left">
+    <div class="fish-cards">
+      <% @restaurant.fish_orders.each do |order| %>
+      <div class="fish-card">
+        <div class="fish-card-info">
+          <h4><%= order.fish.name %></h4>
+          <p><%= order.weight_in_grams %> kg</p>
         </div>
-    <% end %>
+        <div class="fish-card-exit">
+          <span class="plus-minus"><%= link_to image_tag("delete-icon.png", border: 0, class: "icon"), fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="bottom-container-right">
+    <div class="checkout">
+      <div class="checkout-header text-center">
+      </div>
+      <% @restaurant.fish_orders.each do |order| %>
+      <%= simple_form_for([@restaurant, order]), method: :post do |f| %>
+      <div class="yelp-search">
+        <div class="fish-form-checkout">
+          <%= f.input :weight_in_grams, label: order.fish.name, prompt: "kg", collection: (1..10).to_a %>
+          <%= f.submit value: "Add" %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
