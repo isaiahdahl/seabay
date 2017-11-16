@@ -14,23 +14,25 @@
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Select your fish</h4>
               </div>
+
               <div class="modal-body">
                 <div class="filters">
                   <%= simple_form_for "", url: restaurants_path, html: { class: "filter"}, method: :get do |f| %>
                       <% @fish.sort! %>
                       <% @fish.each do |fish| %>
                           <div class="checkbox">
-                            <%= f.input fish, as: :boolean, input_html: { checked: params[fish].to_i == 1 }, html: { class: "slider round" }, label_html: { class: 'switch' } %>
+                            <%= f.input fish, as: :boolean, input_html: { class: "fish_name", checked: params[fish].to_i == 1 }, html: { class: "slider round" }, label_html: { class: 'switch' } %>
                           </div>
                       <% end %>
                 </div>
               </div>
+
               <div class="modal-footer filter-inputs">
                 <%= f.submit 'Search for Match' %>
                 <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
