@@ -16,3 +16,68 @@
   margin-bottom: 20px;
   border-radius: 6px;
 }
+
+.map_box {
+  width: 200px;
+  border-radius: 5px;
+  h3 {
+  font-size: 20px;
+  }
+  h4 {
+    font-size: 10px;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  p {
+    font-size: 16px;
+  }
+  .btn-solid {
+    display: inline-block;
+    margin-top: -25px;
+    margin-bottom: 6px;
+  }
+}
+
+
+
+.top-line {
+  margin-bottom: 20px;
+  margin-top: 12px;
+}
+
+.bottom-line {
+  margin-bottom: 30px;
+  margin-top: 12px;
+}
+
+.switch {
+  display: block;
+  // padding-left: 15px;
+  text-indent: 8px;
+  // line-height: 20px;
+}
+
+.checkbox {
+  width: 230px;
+  line-height: 1.9;
+  // padding-right: 40px;
+  :last-child {
+    input {
+    width: 300px;
+    }
+  }
+}
+
+// .fish_name {
+//   width: 300px;
+// }
+
+// div.boolean, .simple_form input[type='submit'] {
+//   margin-left: 120px;
+// }
+
+// .fish_name input {
+//   width: 300px;
+//   // float: left;
+//   // margin: 100px;
+// }

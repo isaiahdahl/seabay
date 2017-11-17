@@ -1,0 +1,45 @@
+
+<div class="top-container">
+  <div class="top-container-left">
+    <div class="description">
+      <h2><%= @restaurant.name %></h2>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.email %></p>
+    </div>
+
+  </div>
+  <div class="top-container-right img-fluid">
+      <%= image_tag @restaurant.img_url %>
+  </div>
+</div>
+<div class="text-center">
+  <div class="fish-form">
+    <p><%= Time.now.strftime("%A, %B %C, %G") %></p>
+    <h3>Today we're looking for</h3>
+    <%= simple_form_for([@restaurant, @fishorder]) do |f| %>
+        <div class="yelp-search">
+          <div class="fish-form-inputs">
+            <%= f.input :weight_in_grams, label: false, prompt: "kg", collection: (1..10).to_a %>
+            <%= f.input :fish_id, label: false, prompt: "Fish", collection: @fish %>
+            <%= f.submit value: "Add" %>
+            <%= link_to "Order complete", restaurants_path(notice: true) %>
+          </div>
+
+        </div>
+    <% end %>
+  </div>
+</div>
+<div class="fish-cards">
+    <% @restaurant.fish_orders.each do |order| %>
+        <div class="fish-card">
+          <div class="fish-card-info">
+            <h4><%= order.fish.name %></h4>
+            <p><%= order.weight_in_grams %> kg</p>
+          </div>
+          <div class="fish-card-exit">
+            <span class="plus-minus"><%= link_to image_tag("delete-icon.png", border: 0, class: "icon"), fish_order_path(order.id), method: :delete, data: {confirm: "Delete this order?"} %></span>
+          </div>
+        </div>
+    <% end %>
+</div>

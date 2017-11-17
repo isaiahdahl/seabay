@@ -1,11 +1,19 @@
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= photo?(restaurant) %>');">
+
   <div class="card-body">
-    <div class="card-category">
-      <h4><%= restaurant.fish_orders.count %></h4>
+    <div class="card-category text-center">
+      <% compare(restaurant) %>
+      <% if !@intersection.empty? %>
+          <h4><%= @intersection.size %></h4>
+          <%= image_tag "fish_solid.png", class: "card-icon" %>
+          <h5>MATCH</h5>
+      <% else %>
+          <h4></h4>
+      <% end %>
     </div>
 
     <div class="card-desc">
-      <h2><%= link_to restaurant.name, restaurant_path(id: restaurant.id) %></h2>
+      <h2><%= restaurant.name %></h2>
     </div>
   </div>
 </div>

@@ -5,6 +5,17 @@
   background-size: cover !important;
 }
 
+.bottom-container {
+  display: flex;
+  height: 50vh;
+  margin: 0 auto;
+  background-size: cover !important;
+}
+
+.description {
+  margin-top: 30px;
+}
+
 .top-container-left {
   width: 45%;
   display: flex;
@@ -14,6 +25,12 @@
   h2 {
     margin: 0 0 10px;
   }
+}
+
+.bottom-container-left {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 .top-container-right {
@@ -29,6 +46,13 @@
     object-fit: cover;
     overflow: hidden;
   }
+}
+
+.bottom-container-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
 
 .fish-form {
@@ -52,6 +76,26 @@
   display: flex;
   justify-content: center;
   color: white;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    height: 50px;
+    width: 150px;
+    margin: 10px;
+    box-shadow: none !important;
+    border-radius: 3px;
+    padding: 0 10px 0 10px !important;
+    background-color: #648791 !important;
+    border: 0px solid #ffffff !important;
+    &:hover {
+      background-color: #375C69 !important;
+    }
+  }
+
   input {
     height: 50px;
     width: 100px;
@@ -80,4 +124,50 @@
   }
 }
 
+.checkout-form-inputs {
+  display: flex;
+  justify-content: center;
+  color: white;
+  input {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    box-shadow: none !important;
+    border-radius: 3px;
+    padding: 0 10px 0 10px !important;
+    background-color: #648791 !important;
+    border: 0px solid #ffffff !important;
+    &:hover {
+      background-color: #375C69 !important;
+    }
+  }
+  select {
+    height: 50px;
+    width: 280px;
+    margin: 10px;
+    box-shadow: none !important;
+    border-radius: 3px;
+    padding: 0 10px 0 10px !important;
+    background-color: transparent !important;
+    border: 1px solid #557580 !important;
+    &#fish_order_weight_in_grams {
+      width: 50px;
+    }
+  }
+  p {
+    width: 200px;
+  }
+}
+
+#checkout {
+  background-color: #60838D;
+  color: #fff;
+  width: 100%;
+  min-height: 390px;
+  margin: 0;
+  padding: 20px 10px;
+  display: inline-flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
 

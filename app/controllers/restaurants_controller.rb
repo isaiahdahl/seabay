@@ -1,23 +1,30 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy, :my_restaurant]
+  before_action :authenticate_user!
   def index
-    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
 
+    flash.now[:notice] = "You order has been correctly added" if params[:notice].present?
+
+    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
     if search_params.empty?
       @restaurants
+      @f = "Press the button to search for fish"
     else
       @fish = Fish.all
       search = search_params.to_h
       fish = search.select { |key, value| value == "1" }
-      f = []
-      fish.keys.each { |name| f << Fish.where(name: name).first }
+      @f = []
+      fish.keys.each { |name| @f << Fish.where(name: name).first }
       @restaurants = []
-      f.each do |fish|
+      @f.each do |fish|
         if FishOrder.where(fish_id: fish.id).first
           @restaurants << FishOrder.where(fish_id: fish.id).first.restaurant
         end
       end
     end
+    @restaurants = @restaurants.uniq
+
+
     @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
@@ -76,10 +83,18 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path
   end
 
+  def my_restaurant
+    @fish = Fish.order("name asc")
+    @fishorder = FishOrder.new
+     @fish = Fish.order("name asc")
+      @fishorder = FishOrder.new
+      flash[:alert] = "YOU'RE NOT AUTHORIZED TO INITIATE A DUEL UNTIL YOU BECOME A NINJA, BUT YOU CAN BE INVITED TO A DUEL" if params[:alert].present?
+  end
+
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :term, :location)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :email, :img_url, :url, :term, :location, fish_orders_attributes: [:id, :weight_in_grams, :done, :_destroy])
   end
 
   def find_restaurant

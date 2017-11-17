@@ -1,0 +1,8 @@
+<%= simple_form_for [restaurant, fish_order], :url => email_order_fish_order_path, method: :post do |form| %>
+<div id= class="checkout-form-inputs">
+  <%= form.input :weight_in_grams, label: false, collection: (1..fish_order.weight_in_grams).to_a, selected: fish_order.weight_in_grams %>
+  <p>kg of <%= fish_order.fish.name %></p>
+</div>
+<%= form.submit value: "Email Restaurant", class: "btn-solid" %>
+<% end %>
+

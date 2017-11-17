@@ -1,20 +1,30 @@
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: 80vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  span :last-child {
+    color: white !important;
+    background-color: transparent !important;
+  }
 }
+
+
+.typing-container {
+  display: flex;
+  margin-left: 5px;
+}
+
 .banner h1 {
   font-size: 50px;
-  // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  font-weight: 400;
 }
 .banner p {
   font-size: 25px;
-  // font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
@@ -23,15 +33,14 @@
 .resto-banner {
   color: #375C69;
   text-align: center;
-  height: 400px;
-  // background-size: cover !important;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .banner-content {
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
 .resto-banner h2 {
@@ -45,3 +54,72 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+
+.slideUp {
+  text-align: center;
+  animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  visibility: visible;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+
+.slideUpBanner {
+  text-align: center;
+  animation-name: slideUpBanner;
+  -webkit-animation-name: slideUpBanner;
+  animation-duration: .7s;
+  -webkit-animation-duration: .7s;
+  visibility: visible;
+}
+
+@keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideUpBanner {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+
+.banner-content:selection {
+  background: transparent;
+  color: transparent;
+}
+

@@ -1,5 +1,14 @@
-<div class="map_box">
+<div class="map_box text-center">
   <h3><%= restaurant.name %></h3>
-  <p><%= restaurant.address %></p>
-  <%= link_to "Details", restaurant_path(restaurant), class: "btn btn-warning" %>
+  <h4>Is looking for</h4>
+  <hr class="top-line">
+  <% restaurant.fish_orders.each do |fish_order| %>
+    <p><%= fish_order.weight_in_grams %> kg of <%= @fish[fish_order.fish_id] %> </p>
+  <% end %>
+    <hr class="bottom-line">
+  <%= link_to "Details", restaurant_path(restaurant), class: "btn-solid" %>
 </div>
+
+
+
+

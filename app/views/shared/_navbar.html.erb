@@ -1,16 +1,16 @@
+<!-- If user is signed in -->
 <% if user_signed_in? %>
     <div class="navbar-wagon">
       <!-- Logo -->
       <%= link_to "seaBay", restaurants_path , class: "navbar-wagon-brand" %>
-
+      <!-- If user is a restaurant owner -->
       <% if is_restaurant_owner? %>
         <!-- Right Navigation -->
         <div class="navbar-wagon-right hidden-xs hidden-sm">
 
           <!-- Links when logged in -->
-          <%= link_to "Register Restaurant", new_restaurant_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to "My Restaurant", restaurant_path(is_restaurant_owner?), class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to "Log-Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "My Restaurant", my_restaurant_restaurant_path(is_restaurant_owner?), class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
 
           <!-- Avatar with dropdown menu -->
           <div class="navbar-wagon-item">
@@ -36,7 +36,7 @@
               </ul>
             </div>
           </div>
-
+        <!-- If user is NOT a restaurant owner -->
         <% else %>
 
           <!-- Right Navigation -->
@@ -71,13 +71,13 @@
             </div>
           </div>
         <% end %>
-
+      <!-- If user is NOT sign-in -->
       <% else %>
       <!-- Login link (when logged out) -->
       <div class="navbar-wagon">
     <!-- Logo -->
     <%= link_to "seaBay", root_path , class: "navbar-wagon-brand" %>
-    
+
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <%= link_to t(".sign_in", default: "Sign-In"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -96,4 +96,8 @@
       </ul>
     </div>
   </div>
+</div>
+
+<div class="nav-scroll">
+
 </div>

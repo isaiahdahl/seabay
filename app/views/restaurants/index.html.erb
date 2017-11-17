@@ -3,34 +3,64 @@
   <div class="container">
     <div class="index-container">
       <div class="index-left">
-        <div class="checkbox">
-          <div class="dropdown">
-            <button class="filter-inputs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <p>Pick some fish!<span class="caret"></span></p>
-            </button>
-            <ul class="dropdown-menu filter-dropdown-menu" aria-labelledby="dropdownMenu1">
-              <div class="filters">
-                <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
-                    <% @fish.each do |fish| %>
-                        <li><%= f.input fish, as: :boolean %></li>
+        <div class="filter-names">
+          <div class="tags">
+            <% if @f.class == String %>
+                <p>Press the button to select your catch</p>
+            <% else %>
+            <% @f[0,4].each do |fish| %>
+              <div class="btn-solid-pill"><p><%= fish.name %></p></div>
+                <% end %>
+                    <% if @f.count > 4 %>
+                        <div class="btn-solid-pill"><p>+ <%= @f.count - 4 %></p></div>
                     <% end %>
-                    </div>
-                    </ul>
-                    </div>
-
-              <div class="filter-inputs">
-                <%= f.submit 'Search for fish!' %>
-                <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
-              </div>
-          <% end %>
+            <% end %>
+          </div>
+          <button type="button" class="btn-search" data-toggle="modal" data-target="#myModal">
+            Select Your Fish
+          </button>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Select your fish</h4>
+              </div>
+
+              <div class="modal-body">
+                <div class="filters">
+                  <%= simple_form_for "", url: restaurants_path, html: { class: "filter"}, method: :get do |f| %>
+                      <% @fish.sort! %>
+                      <% @fish.each do |fish| %>
+                          <div class="checkbox">
+                            <%= f.input fish, as: :boolean, input_html: { class: "fish_name", checked: params[fish].to_i == 1 }, html: { class: "slider round" }, label_html: { class: 'switch' } %>
+                          </div>
+                      <% end %>
+                </div>
+              </div>
+
+              <div class="modal-footer filter-inputs">
+                <%= f.submit 'Search for Match' %>
+                <%= link_to "Clear filters", restaurants_path, class: "stupid-button" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="restaurants">
           <div class="row">
-            <% @restaurants.each do |c| %>
+            <% sorted = @restaurants.sort {|a,b| compare(b).size<=>compare(a).size } %>
+            <% sorted.each do |c| %>
+              <%= link_to restaurant_path(id: c.id) do %>
                 <div class="col-xs-12 col-sm-6">
                   <%= render 'shared/card', restaurant: c %>
                 </div>
             <% end %>
+          <% end %>
           </div>
         </div>
       </div>
