@@ -31,6 +31,23 @@ class FishOrdersController < ApplicationController
     redirect_to my_restaurant_restaurant_path(@fish_order.restaurant)
   end
 
+  def email_order
+    @user = current_user
+    @fish_order = FishOrder.find(params[:id])
+    @restaurant = Restaurant.find(@fish_order.restaurant_id)
+    UserMailer.order(@user, @restaurant, @fish_order).deliver_now
+    redirect_to restaurant_path(@restaurant)
+  end
+
+  def add
+    @fish_order = FishOrder.find(params[:id])
+    @restaurant = Restaurant.find(@fish_order.restaurant_id)
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
+
   private
 
   def fish_order_params

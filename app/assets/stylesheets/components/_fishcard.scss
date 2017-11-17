@@ -1,3 +1,7 @@
+a:hover {
+  text-decoration: none;
+}
+
 .fish-cards {
   background-color: #e6f4f3;
   width: 100%;
@@ -27,6 +31,29 @@
   p {
     font-weight: 200;
     color: #1e2020;
+    justify-self: flex-end;
+    margin: 0;
+  }
+}
+
+.fish-card-select {
+  height: 110px;
+  width: 210px;
+  background-color: #375C69;
+  color: #fff;
+  margin: 10px;
+  border: 1px solid #557580 !important;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+  h4 {
+    margin: 0;
+  }
+  p {
+    font-weight: 200;
+    color: #fff;
     justify-self: flex-end;
     margin: 0;
   }
