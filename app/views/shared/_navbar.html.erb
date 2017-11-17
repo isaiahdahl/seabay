@@ -2,7 +2,10 @@
 <% if user_signed_in? %>
     <div class="navbar-wagon">
       <!-- Logo -->
-      <%= link_to "seaBay", restaurants_path , class: "navbar-wagon-brand" %>
+      <div class="navbar-left">
+        <%= image_tag "logo.png", class: "navbar-logo" %>
+        <%= link_to "seaBay", restaurants_path, class: "navbar-wagon-brand" %>
+      </div>
       <!-- If user is a restaurant owner -->
       <% if is_restaurant_owner? %>
         <!-- Right Navigation -->

@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #E3F3F2;
+  background: #375C69;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -12,15 +12,18 @@
 
 /* Logo */
 .navbar-wagon-brand {
-  color: #406573;
+  color: white;
+  font-family: 'Open Sans';
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 800;
   &:hover {
     text-decoration: none;
     color: #60838D;
   }
 }
-
+.navbar-logo {
+  height: 40px;
+}
 .navbar-wagon-brand img {
   height: 50px;
 }
