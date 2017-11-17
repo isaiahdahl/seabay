@@ -6,7 +6,7 @@
         <div class="filter-names">
           <div class="tags">
             <% if @f.class == String %>
-                <p>Press the button to select your catch</p>
+                <p id="instuctions">Use filter to find what restaurants are looking for </p>
             <% else %>
             <% @f[0,4].each do |fish| %>
               <div class="btn-solid-pill"><p><%= fish.name %></p></div>
@@ -17,7 +17,7 @@
             <% end %>
           </div>
           <button type="button" class="btn-search" data-toggle="modal" data-target="#fishes">
-            Select Your fish
+            Filter by fish
           </button>
         </div>
 

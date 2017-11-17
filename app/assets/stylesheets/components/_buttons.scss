@@ -28,12 +28,17 @@
   margin: 4px;
   height: 30px;
   padding: 2px 7px 2px 7px;
-  border-radius: 15px;
+  border-radius: 13px;
   font-weight: 500;
   background-color: transparent !important;
   border: 1px solid #648791 !important;
   display: flex;
   justify-content: center;
+  p {
+    font-size: 12px;
+    text-transform: uppercase;
+  padding: 3px 6px 0px 6px;
+  }
 }
 
 .btn-solid:hover {
@@ -74,4 +79,16 @@
 .btn-clear:hover {
   text-decoration: none;
   background-color: #96B3BB;
+}
+
+.btn-fb {
+  margin-top: 14px;
+  height: 52px;
+  text-decoration: none;
+  color: white !important;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: #3C66C4;
+  border: 0px solid transparent !important;
 }
