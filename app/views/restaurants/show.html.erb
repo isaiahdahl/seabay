@@ -17,6 +17,7 @@
   <div class="bottom-container-left">
     <div class="fish-cards">
       <% @restaurant.fish_orders.each do |order| %>
+      <%= link_to add_fish_order_path(order.id), remote: true, id: "like_#{order.id}" do %>
       <div class="fish-card">
         <div class="fish-card-info">
           <h4><%= order.fish.name %></h4>
@@ -26,21 +27,12 @@
         </div>
       </div>
       <% end %>
+      <% end %>
     </div>
   </div>
   <div class="bottom-container-right">
-    <div class="checkout">
-      <%= simple_form_for [@restaurant, @fishorder], :url => email_order_restaurant_path do |f| %>
-        <% @restaurant.fish_orders.each do |order| %>
-          <div class="checkout-form-inputs">
-            <%= f.input :weight_in_grams, label: false, collection: (1..order.weight_in_grams).to_a, selected: order.weight_in_grams %>
-            <p>kg of <%= order.fish.name %></p>
-          </div>
-        <% end %>
-      <%= f.submit value: "Email Restaurant", class: "btn-solid" %>
-      <% end %>
-      <div class="checkout-header text-center">
-      </div>
+    <div id="checkout">
+
     </div>
   </div>
 </div>

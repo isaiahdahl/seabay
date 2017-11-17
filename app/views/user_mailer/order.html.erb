@@ -1,8 +1,9 @@
 <h3>Hi <%= @restaurant.name %>,</h3>
 
-<p><%= @user.email  %> wants to sell you the following fish:</p>
+<p><%= @user.email  %> wants to sell you <%= @fish_order.weight_in_grams  %> Kg of <%= @fish_order.fish.name  %></p>
 
 <ul>
+You asked for these fish:
 <% @restaurant.fishes.each do |fish| %>
   <li><%= fish.name %></li>
 <% end %>

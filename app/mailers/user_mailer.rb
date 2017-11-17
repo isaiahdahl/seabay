@@ -5,7 +5,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.order.subject
   #
-  def order(user, restaurant)
+  def order(user, restaurant, fish_order)
+    @fish_order = fish_order
     @restaurant = restaurant
     @user = user
     @greeting = "Hi"
