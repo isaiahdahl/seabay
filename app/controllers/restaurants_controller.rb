@@ -17,11 +17,16 @@ class RestaurantsController < ApplicationController
       fish.keys.each { |name| @f << Fish.where(name: name).first }
       @restaurants = []
       @f.each do |fish|
-        if FishOrder.where(fish_id: fish.id).first
-          @restaurants << FishOrder.where(fish_id: fish.id).first.restaurant
+        @fishorders = []
+        if FishOrder.where(fish_id: fish.id).all
+          @fishorders << FishOrder.where(fish_id: fish.id).all
+          @fishorders.first.select do |order|
+            @restaurants << order.restaurant
+          end
         end
       end
     end
+  
     @restaurants = @restaurants.uniq
 
 
