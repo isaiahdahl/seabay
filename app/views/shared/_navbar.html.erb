@@ -79,8 +79,10 @@
       <!-- Login link (when logged out) -->
       <div class="navbar-wagon">
     <!-- Logo -->
-    <%= link_to "seaBay", root_path , class: "navbar-wagon-brand" %>
-
+        <div class="navbar-left">
+          <%= image_tag "logo.png", class: "navbar-logo" %>
+          <%= link_to "seaBay", restaurants_path, class: "navbar-wagon-brand" %>
+        </div>
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
