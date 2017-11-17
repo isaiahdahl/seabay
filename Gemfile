@@ -22,6 +22,7 @@ gem 'http'
 gem 'httparty'
 gem "geocoder"
 gem 'typing'
+gem 'jquery-ui-rails'
 
 gem "coffee-rails"
 gem "gmaps4rails"
