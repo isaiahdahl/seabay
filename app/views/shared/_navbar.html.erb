@@ -81,7 +81,7 @@
     <!-- Logo -->
         <div class="navbar-left">
           <%= image_tag "logo.png", class: "navbar-logo" %>
-          <%= link_to "seaBay", restaurants_path, class: "navbar-wagon-brand" %>
+          <%= link_to "seaBay", root_path, class: "navbar-wagon-brand" %>
         </div>
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -128,7 +128,26 @@
         <h4 class="modal-title" id="myModalLabel">Select your fish</h4>
       </div>
       <div class="modal-body">
-        <%= render "shared/signup" %>
+        <div class="form">
+          <div class="text-center">
+            <h4 class="text-center">Sign Up</h4>
+          </div>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :email, label: false, placeholder: "Email",  required: false, autofocus: true, inner_html: { class: 'username' } %>
+                <%= f.input :password, label: false, placeholder: "Password", required: false %>
+                <%= f.input :password_confirmation, placeholder: "Confirm Password", label: false, required: false %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Sign up", class: 'btn-block' %>
+              </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
   </div>

@@ -17,6 +17,21 @@
   // box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
+.card-home {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  margin: 20px 10px;
+  // box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
 
 .card:hover {
   box-shadow: 0 0 12px rgba(0,0,0,0.6);
