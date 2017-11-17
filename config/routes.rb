@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   
   devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' }
 
   resources :fish_orders, only: [:destroy] do
     member do
