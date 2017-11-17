@@ -83,9 +83,8 @@
 
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
-      <button class="navbar-wagon-item navbar-wagon-link" data-toggle="modal" data-target="#myModal">Sign in</button>
-      <%= link_to t(".sign_in", default: "Sign-In"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", data: { toggle: 'modal', target: '#myModal'}  %>
-      <%= link_to t(".sign_in", default: "Sign-Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
+      <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignUp">Sign Up</button>
     <% end %>
   </div>
 
@@ -105,7 +104,21 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Select your fish</h4>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/sign_in" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="navbar">
