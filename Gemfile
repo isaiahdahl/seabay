@@ -24,6 +24,7 @@ gem 'http'
 gem 'httparty'
 gem "geocoder"
 gem 'typing'
+gem 'jquery-ui-rails'
 gem 'cocoon'
 
 gem "coffee-rails"

@@ -34,11 +34,33 @@
     </div>
   </div>
 </section>
-
-<div class="resto-banner" style="background-color: #E3F3F2" >
+<div class="banner2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/85528/pexels-photo-85528.jpeg');">
   <div id="resto-content" class="banner-content">
     <h1 class="headline">Owner of a Seafood Restaurant?</h1>
-    <%= link_to "SIGN UP", new_user_registration_path, class: "btn-solid" %>
+    <button class="btn-banner" data-toggle="modal" data-target="#modalSignUp">SIGN UP</button>
+  </div>
+</div>
+
+<div class="resto-banner" style="background-color: #E3F3F2" >
+    <h3>a few sample restaurants...</h3>
+  <div id="resto-content" class="banner-content-cards">
+    <% @restaurants. each do |restaurant| %>
+    <div class="card-home" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= photo?(restaurant) %>');">
+
+      <div class="card-body">
+        <div class="card-category text-center">
+              <h4><%= [4,2,6].sample %></h4>
+              <%= image_tag "fish_solid.png", class: "card-icon" %>
+              <h5>MATCH</h5>
+        </div>
+
+        <div class="card-desc">
+          <h2><%= restaurant.name %></h2>
+        </div>
+      </div>
+    </div>
+        <% end %>
+  </div>
   </div>
 </div>
 

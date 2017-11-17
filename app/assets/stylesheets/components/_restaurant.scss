@@ -31,6 +31,7 @@
   width: 70%;
   display: flex;
   flex-direction: column;
+  height: 50vh;
 }
 
 .top-container-right {
@@ -53,6 +54,7 @@
   justify-content: center;
   align-items: center;
   width: 30%;
+  max-height: 50vh;
 }
 
 .fish-form {
@@ -163,11 +165,12 @@
   background-color: #60838D;
   color: #fff;
   width: 100%;
-  min-height: 390px;
+  height: 50vh;
   margin: 0;
   padding: 20px 10px;
   display: inline-flex;
   flex-flow: wrap;
   justify-content: center;
+  overflow: scroll;
 }
 

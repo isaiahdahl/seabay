@@ -7,12 +7,10 @@ function myFunction() {
     document.getElementById("icon-1").className = "slideUp";
     document.getElementById("icon-2").className = "slideUp";
     document.getElementById("icon-3").className = "slideUp";
-    document.getElementById("header").className = "slideUp";
   } else {
     document.getElementById("icon-1").className = 'hidden';
     document.getElementById("icon-2").className = 'hidden';
     document.getElementById("icon-3").className = 'hidden';
-    document.getElementById("header").className = 'hidden';
   };
 }
 
@@ -23,3 +21,4 @@ function lowerText() {
     document.getElementById("resto-content").className = 'hidden';
   }
 }
+

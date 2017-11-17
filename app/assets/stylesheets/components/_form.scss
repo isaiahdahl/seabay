@@ -53,7 +53,7 @@
 .restaurant-form-inputs {
   display: flex;
   justify-content: center;
-  color: #879da6;
+  color: white;
   input {
     height: 50px;
     width: 280px;
@@ -150,4 +150,14 @@
 
 .form-actions {
   margin-top: 30px;
+}
+
+#term::placeholder, #location::placeholder {
+  color: #879DA6;
+}
+
+.boolean {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

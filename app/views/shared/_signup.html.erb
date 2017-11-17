@@ -1,0 +1,28 @@
+<div class="form">
+  <div class="text-center">
+    <h4 class="text-center">Sign Up</h4>
+  </div>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email, label: false, placeholder: "Email",  required: false, autofocus: true, inner_html: { class: 'username' } %>
+        <%= f.input :password, label: false, placeholder: "Password", required: false %>
+        <%= f.input :password_confirmation, placeholder: "Confirm Password", label: false, required: false %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class: 'btn-block' %>
+      </div>
+  <% end %>
+
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+          <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), {class: 'btn-block btn-fb'}  %><br />
+      <% end -%>
+  <% end -%>
+  <%- if controller_name != 'sessions' %>
+      <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <% end -%>
+</div>
+

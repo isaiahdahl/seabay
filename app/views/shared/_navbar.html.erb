@@ -2,7 +2,10 @@
 <% if user_signed_in? %>
     <div class="navbar-wagon">
       <!-- Logo -->
-      <%= link_to "seaBay", restaurants_path , class: "navbar-wagon-brand" %>
+      <div class="navbar-left">
+        <%= image_tag "logo.png", class: "navbar-logo" %>
+        <%= link_to "seaBay", restaurants_path, class: "navbar-wagon-brand" %>
+      </div>
       <!-- If user is a restaurant owner -->
       <% if is_restaurant_owner? %>
         <!-- Right Navigation -->
@@ -76,12 +79,14 @@
       <!-- Login link (when logged out) -->
       <div class="navbar-wagon">
     <!-- Logo -->
-    <%= link_to "seaBay", root_path , class: "navbar-wagon-brand" %>
-
+        <div class="navbar-left">
+          <%= image_tag "logo.png", class: "navbar-logo" %>
+          <%= link_to "seaBay", root_path, class: "navbar-wagon-brand" %>
+        </div>
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
-      <%= link_to t(".sign_in", default: "Sign-In"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t(".sign_in", default: "Sign-Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignIn">Sign In</button>
+      <button class="navbar-wagon-item navbar-wagon-link btn-nav" data-toggle="modal" data-target="#modalSignUp">Sign Up</button>
     <% end %>
   </div>
 
@@ -98,6 +103,50 @@
   </div>
 </div>
 
-<div class="nav-scroll">
 
+
+<!-- Modal -->
+<div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-container" role="document">
+
+    <div class="modal-content modal-container-left text-center intro";">
+      <h2>Log in to seaBay</h2>
+      <p>Log in and sell your fish directly to restaurants in your area</p>
+    </div>
+
+
+    <div class="modal-content modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render "shared/sign_in" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg modal-container" role="document">
+
+    <div class="modal-content modal-container-left text-center intro";">
+      <h2>Join seaBay</h2>
+      <p>Sign up and sell your fish directly to restaurants in your area</p>
+    </div>
+
+    <div class="modal-content modal-container-right">
+      <div class="navbar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render "shared/signup" %>
+      </div>
+    </div>
+  </div>
 </div>
