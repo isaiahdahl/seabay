@@ -17,6 +17,7 @@ module ApplicationHelper
       image_path "fisherman.jpg"
     end
   end
+
   def resource_name
     :user
   end
