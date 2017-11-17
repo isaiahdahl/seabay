@@ -1,0 +1,11 @@
+console.log('Hello');
+
+console.log('<%= @restaurant.name %>');
+
+console.log('<%= @fish_order.id %>');
+
+document.getElementById("like_<%= @fish_order.id %>").firstElementChild.classList.remove("fish-card");
+
+document.getElementById("like_<%= @fish_order.id %>").firstElementChild.classList.add("fish-card-select");
+
+document.getElementById("checkout").insertAdjacentHTML("afterbegin", "<%= j render 'shared/fish_order_fields', restaurant: @restaurant, fish_order: @fish_order %>");
