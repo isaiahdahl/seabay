@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 80vh;
+  height: calc(75vh - 70px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -13,6 +13,20 @@
   }
 }
 
+.banner2 {
+  color: white;
+  text-align: center;
+  height: calc(55vh);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span :last-child {
+    color: white !important;
+    background-color: transparent !important;
+  }
+}
 
 .typing-container {
   display: flex;
@@ -33,14 +47,24 @@
 .resto-banner {
   color: #375C69;
   text-align: center;
-  height: 350px;
+  min-height: 40vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  h3 {
+    margin-top: 25px;
+    font-weight: 100;
+  }
 }
 
 .banner-content {
   margin-bottom: 0px;
+}
+
+.banner-content-cards {
+  margin-bottom: 0px;
+  display: flex;
 }
 
 .resto-banner h2 {

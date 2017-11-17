@@ -1,7 +1,10 @@
 // Specific CSS for your home-page
 #services {
-  height: 400px;
+  min-height: 450px;
   padding: 40px 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .home-icon {
@@ -16,5 +19,5 @@
 }
 
 .section-heading {
-
+    margin-top: 45px !important;
 }
